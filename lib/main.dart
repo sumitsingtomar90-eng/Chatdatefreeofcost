@@ -1,33 +1,40 @@
 import 'package:flutter/material.dart';
-import '../screens/home.dart';
-import '../screens/login.dart';
-import '../screens/signup.dart';
-import '../screens/profile.dart';
-import '../screens/chat.dart';
-import '../screens/match.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const ChatDateFreeOfCost());
 }
 
-class MyApp extends StatelessWidget {
+class ChatDateFreeOfCost extends StatelessWidget {
+  const ChatDateFreeOfCost({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ChatDateFreeOfCost',
+      title: "Chat Date Free of Cost",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => LoginScreen(),
-        '/signup': (context) => SignupScreen(),
-        '/home': (context) => HomeScreen(),
-        '/profile': (context) => ProfileScreen(),
-        '/chat': (context) => ChatScreen(),
-        '/match': (context) => MatchScreen(),
-      },
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Chat Date Free of Cost"),
+      ),
+      body: const Center(
+        child: Text(
+          "Welcome to Chat Date Free of Cost!",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
     );
   }
 }
