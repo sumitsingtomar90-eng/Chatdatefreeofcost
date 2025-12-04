@@ -1,66 +1,25 @@
 import 'package:flutter/material.dart';
 
 class MatchScreen extends StatelessWidget {
+  final List<Map<String, dynamic>> people = [
+    {"name": "Aarav", "age": 22, "img": "https://i.pravatar.cc/150?img=1"},
+    {"name": "Riya", "age": 20, "img": "https://i.pravatar.cc/150?img=2"},
+    {"name": "Kabir", "age": 24, "img": "https://i.pravatar.cc/150?img=3"},
+    {"name": "Ananya", "age": 21, "img": "https://i.pravatar.cc/150?img=4"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Matches"),
+        title: Text("Find Matches ❤️"),
         backgroundColor: Colors.pink,
       ),
-
-      body: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Your Matches ❤️",
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-            ),
-
-            SizedBox(height: 20),
-
-            Expanded(
-              child: ListView(
-                children: [
-                  matchTile("Aisha", "https://i.pravatar.cc/150?img=32"),
-                  matchTile("Simran", "https://i.pravatar.cc/150?img=45"),
-                  matchTile("Neha", "https://i.pravatar.cc/150?img=28"),
-                  matchTile("Sana", "https://i.pravatar.cc/150?img=12"),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget matchTile(String name, String img) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 15),
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.pink[50],
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundImage: NetworkImage(img),
-          ),
-          SizedBox(width: 15),
-          Text(
-            name,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          Spacer(),
-          Icon(Icons.favorite, color: Colors.pink),
-        ],
-      ),
-    );
-  }
-}
+      body: ListView.builder(
+        padding: EdgeInsets.all(12),
+        itemCount: people.length,
+        itemBuilder: (context, index) {
+          return Card(
+            elevation: 4,
+            margin: EdgeInsets.symmetric(vertical: 10),
+            shape: RoundedRectangleBorder(
