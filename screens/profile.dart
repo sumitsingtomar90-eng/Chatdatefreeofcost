@@ -5,53 +5,54 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Profile"),
+        title: Text("Your Profile 💖"),
         backgroundColor: Colors.pink,
       ),
-
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             CircleAvatar(
               radius: 60,
-              backgroundColor: Colors.pink,
-              child: Icon(Icons.person, size: 70, color: Colors.white),
+              backgroundColor: Colors.pink.shade200,
+              child: Icon(Icons.person, size: 80, color: Colors.white),
             ),
-
             SizedBox(height: 20),
 
             Text(
               "User Name",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
 
             SizedBox(height: 10),
             Text(
-              "email@example.com",
+              "Bio: Write something about yourself...",
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
             ),
 
             SizedBox(height: 30),
 
-            ListTile(
-              leading: Icon(Icons.edit),
-              title: Text("Edit Profile"),
-              onTap: () {},
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pink,
+                minimumSize: Size(double.infinity, 50),
+              ),
+              child: Text("Edit Profile"),
             ),
 
-            ListTile(
-              leading: Icon(Icons.lock),
-              title: Text("Change Password"),
-              onTap: () {},
-            ),
+            SizedBox(height: 10),
 
-            ListTile(
-              leading: Icon(Icons.logout, color: Colors.red),
-              title: Text("Logout"),
-              onTap: () {
-                Navigator.pushNamed(context, '/login');
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/chat');
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pink,
+                minimumSize: Size(double.infinity, 50),
+              ),
+              child: Text("Go to Chat"),
             ),
           ],
         ),
