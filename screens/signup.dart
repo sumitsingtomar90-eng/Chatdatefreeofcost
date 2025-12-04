@@ -11,40 +11,66 @@ class SignupScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Create Account 💕",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              "Create Account ❤️",
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
 
+            // Name input
             TextField(
-              decoration: InputDecoration(labelText: "Name"),
+              decoration: InputDecoration(
+                labelText: "Full Name",
+                border: OutlineInputBorder(),
+              ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
 
+            // Email input
             TextField(
-              decoration: InputDecoration(labelText: "Email"),
+              decoration: InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(),
+              ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
 
+            // Password
             TextField(
               obscureText: true,
-              decoration: InputDecoration(labelText: "Password"),
+              decoration: InputDecoration(
+                labelText: "Password",
+                border: OutlineInputBorder(),
+              ),
             ),
-            SizedBox(height: 20),
 
+            SizedBox(height: 25),
+
+            // Signup Button
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/home');
               },
-              child: Text("Sign Up"),
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50),
+                backgroundColor: Colors.pink,
+              ),
+              child: Text(
+                "Sign Up",
+                style: TextStyle(fontSize: 18),
+              ),
             ),
 
-            TextButton(
-              onPressed: () {
+            SizedBox(height: 20),
+
+            GestureDetector(
+              onTap: () {
                 Navigator.pushNamed(context, '/login');
               },
-              child: Text("Already have an account? Login"),
-            ),
+              child: Text(
+                "Already have an account? Login",
+                style: TextStyle(color: Colors.blue),
+              ),
+            )
           ],
         ),
       ),
