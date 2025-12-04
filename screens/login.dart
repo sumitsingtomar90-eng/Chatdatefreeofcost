@@ -16,30 +16,48 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
 
+            // Email
             TextField(
-              decoration: InputDecoration(labelText: "Email"),
+              decoration: InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(),
+              ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
 
+            // Password
             TextField(
               obscureText: true,
-              decoration: InputDecoration(labelText: "Password"),
+              decoration: InputDecoration(
+                labelText: "Password",
+                border: OutlineInputBorder(),
+              ),
             ),
-            SizedBox(height: 20),
+
+            SizedBox(height: 25),
 
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/home');
               },
-              child: Text("Login"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pink,
+                minimumSize: Size(double.infinity, 50),
+              ),
+              child: Text("Login", style: TextStyle(fontSize: 18)),
             ),
 
-            TextButton(
-              onPressed: () {
+            SizedBox(height: 20),
+
+            GestureDetector(
+              onTap: () {
                 Navigator.pushNamed(context, '/signup');
               },
-              child: Text("Create an account"),
-            ),
+              child: Text(
+                "Don't have an account? Sign up",
+                style: TextStyle(color: Colors.blue),
+              ),
+            )
           ],
         ),
       ),
