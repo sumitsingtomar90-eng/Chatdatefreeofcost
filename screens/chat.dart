@@ -1,73 +1,55 @@
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatefulWidget {
-  @override
-  _ChatScreenState createState() => _ChatScreenState();
-}
-
-class _ChatScreenState extends State<ChatScreen> {
-  TextEditingController messageController = TextEditingController();
-  List<String> messages = [];
-
+class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Chat"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.pink,
       ),
+
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
+            child: ListView(
               padding: EdgeInsets.all(10),
-              itemCount: messages.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  alignment: Alignment.centerRight,
-                  margin: EdgeInsets.symmetric(vertical: 5),
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
                   child: Container(
                     padding: EdgeInsets.all(12),
+                    margin: EdgeInsets.symmetric(vertical: 5),
                     decoration: BoxDecoration(
-                      color: Colors.purple.shade200,
-                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Text(messages[index]),
+                    child: Text("Hi 👋"),
                   ),
-                );
-              },
+                ),
+
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Container(
+                    padding: EdgeInsets.all(12),
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.pink[200],
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text("Hello 😊"),
+                  ),
+                ),
+              ],
             ),
           ),
+
+          // Text input
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(10),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
-                    controller: messageController,
                     decoration: InputDecoration(
-                      hintText: "Type a message…",
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 8),
-                IconButton(
-                  icon: Icon(Icons.send, color: Colors.purple),
-                  onPressed: () {
-                    if (messageController.text.isNotEmpty) {
-                      setState(() {
-                        messages.add(messageController.text);
-                        messageController.clear();
-                      });
-                    }
-                  },
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
+                      hintText: "Type a
