@@ -1,48 +1,49 @@
 import 'package:flutter/material.dart';
 
-class SignupScreen extends StatefulWidget {
-  @override
-  _SignupScreenState createState() => _SignupScreenState();
-}
-
-class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-
+class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign Up"),
-        backgroundColor: Colors.redAccent,
-      ),
+      backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              "Create Account 💕",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+
             TextField(
-              controller: emailController,
+              decoration: InputDecoration(labelText: "Name"),
+            ),
+            SizedBox(height: 10),
+
+            TextField(
               decoration: InputDecoration(labelText: "Email"),
             ),
             SizedBox(height: 10),
+
             TextField(
-              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(labelText: "Password"),
             ),
-            SizedBox(height: 10),
-            TextField(
-              controller: confirmPasswordController,
-              obscureText: true,
-              decoration: InputDecoration(labelText: "Confirm Password"),
-            ),
             SizedBox(height: 20),
+
             ElevatedButton(
               onPressed: () {
-                // Sign-up logic will be added later
+                Navigator.pushNamed(context, '/home');
               },
-              child: Text("Create Account"),
+              child: Text("Sign Up"),
+            ),
+
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              },
+              child: Text("Already have an account? Login"),
             ),
           ],
         ),
