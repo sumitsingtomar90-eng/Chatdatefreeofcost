@@ -1,34 +1,45 @@
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Login")),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const TextField(
-              decoration: InputDecoration(
-                labelText: "Email",
-              ),
+            Text(
+              "Welcome Back ❤️",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
-            const TextField(
+            SizedBox(height: 20),
+
+            TextField(
+              decoration: InputDecoration(labelText: "Email"),
+            ),
+            SizedBox(height: 10),
+
+            TextField(
               obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Password",
-              ),
+              decoration: InputDecoration(labelText: "Password"),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 20),
+
             ElevatedButton(
-              onPressed: () {},
-              child: const Text("Login"),
-            )
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              child: Text("Login"),
+            ),
+
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/signup');
+              },
+              child: Text("Create an account"),
+            ),
           ],
         ),
       ),
