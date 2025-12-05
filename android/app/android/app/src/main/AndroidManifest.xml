@@ -3,10 +3,7 @@
 
     <application
         android:label="ChatDate"
-        android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.ChatDate">
-
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -18,7 +15,6 @@
             </intent-filter>
 
         </activity>
-
     </application>
 
 </manifest>
