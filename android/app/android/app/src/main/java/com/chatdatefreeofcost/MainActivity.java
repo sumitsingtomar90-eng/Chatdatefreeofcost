@@ -1,4 +1,4 @@
-package com.chatdatefreeofcost;
+package com.chatdatefreeofcost.chatdatefreeofcost;
 
 import io.flutter.embedding.android.FlutterActivity;
 
